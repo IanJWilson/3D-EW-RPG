@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
-    public float Enemyhealth;
+    public float StartingHealth;
+    public float Currenthealth;
     public float Enemyspeed;
     public float Enemydamage;
+
+    public Slider EnemyHealth;
 
 
     public float MinDis;
@@ -16,13 +20,18 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        Currenthealth = StartingHealth;
+
         Player = GameObject.FindGameObjectWithTag("Player").transform;
+
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        Enemyhealth--;
+        EnemyHealth.value = Currenthealth;
+
+        Currenthealth--;
 
         transform.LookAt(Player);
 
@@ -47,7 +56,7 @@ public class Enemy : MonoBehaviour {
 
 
 
-        if (Enemyhealth <= 0)
+        if (Currenthealth <= 0)
         {
             Destroy(gameObject);
         }
