@@ -52,9 +52,7 @@ public class Enemy : MonoBehaviour {
 
 
 
-
-
-
+        // Death
 
         if (Currenthealth <= 0)
         {
