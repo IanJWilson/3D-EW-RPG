@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Roam : MonoBehaviour {
+public class Roam : Enemy {
 
 	// Use this for initialization
 	void Start () {

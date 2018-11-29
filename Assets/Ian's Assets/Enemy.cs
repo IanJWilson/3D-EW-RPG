@@ -37,18 +37,15 @@ public class Enemy : MonoBehaviour {
 
         if (Vector3.Distance(transform.position, Player.position) >= MinDis)
         {
-
-            transform.position += transform.forward * Enemyspeed * Time.deltaTime;
-
-
-
-           if (Vector3.Distance(transform.position, Player.position) <= MaxDis)
-            {
-                transform.position = transform.position;
-            }
-
+            Chase();
         }
 
+        else if (Vector3.Distance(transform.position, Player.position) <= MaxDis)
+        {
+            transform.position = transform.position;
+        }
+
+       
 
 
 
@@ -56,8 +53,16 @@ public class Enemy : MonoBehaviour {
 
         if (Currenthealth <= 0)
         {
+
+            // Give the player EXP
+            
             Destroy(gameObject);
         }
 		
 	}
+    void Chase()
+    {
+        transform.position += transform.forward * Enemyspeed * Time.deltaTime;
+    }
+
 }
