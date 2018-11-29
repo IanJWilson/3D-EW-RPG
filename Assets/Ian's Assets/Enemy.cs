@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour {
         {
 
             // Give the player EXP
+            //GetComponent<Player>().PlayerEXP++;
             
             Destroy(gameObject);
         }
