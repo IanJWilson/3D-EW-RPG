@@ -46,7 +46,10 @@ public class Enemy : MonoBehaviour {
         }
 
        
-
+        if (Currenthealth > 0 && Currenthealth <= 1)
+        {
+            transform.position += transform.forward * -Enemyspeed * Time.deltaTime;
+        }
 
 
         // Death
