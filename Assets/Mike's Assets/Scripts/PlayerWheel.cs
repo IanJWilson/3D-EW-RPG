@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWheel : MonoBehaviour {
+public class PlayerWheel : CharacterScript {
 
     private Rigidbody body;
     public WheelCollider wheelBL;
@@ -14,6 +14,16 @@ public class PlayerWheel : MonoBehaviour {
     public Transform wheelTransformFL;
     public Transform wheelTransformFR;
 
+    public GameObject SpearL;
+    public GameObject ShieldR;
+
+    public GameObject SwordL;
+    public GameObject SwordR;
+
+    //public GameObject SpearR;
+
+
+        
     public float currentSpeed = 0;
     public float topSpeed = 150;
     public float maxReverseSpeed = -50;
@@ -21,16 +31,17 @@ public class PlayerWheel : MonoBehaviour {
     public float maxTorque = 10;
     public Vector3 centerOfMassAdjustment = new Vector3(0f, -0.9f, 0f);
 
+    
 
 
 
-
-
+    
     // Use this for initialization
     void Start () {
         //lower center of mass for roll-over resistance
         body = GetComponent<Rigidbody>();
         body.centerOfMass += centerOfMassAdjustment;
+        SwordSwing(SwordL, SwordR);
     }
 
     // Update is called once per frame
@@ -39,6 +50,7 @@ public class PlayerWheel : MonoBehaviour {
         //rotate the wheels based on RPM
         float rotationThisFrame = 180 * Time.deltaTime;
         wheelTransformFR.Rotate(wheelBR.rpm / rotationThisFrame, 0, 0);
+        SwordSwing(SwordL, SwordR);
         //UpdateWheelPositions();
     }
 
@@ -62,6 +74,7 @@ public class PlayerWheel : MonoBehaviour {
         //front wheel steering
         wheelFL.steerAngle = Input.GetAxis("Horizontal") * maxTurnAngle;
         wheelFR.steerAngle = Input.GetAxis("Horizontal") * maxTurnAngle;
+
     }
 
     void UpdateWheelPositions()
