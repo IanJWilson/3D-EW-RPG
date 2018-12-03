@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AIController : MonoBehaviour
+public class AIController : Enemy
 {
     public Transform waypointContainer;
     public int numberOfGears;
@@ -23,11 +23,11 @@ public class AIController : MonoBehaviour
     public Transform wheelTransformFR;
     public Transform wheelTransformBL;
     public Transform wheelTransformBR;
-    public GameObject leftBrakeLight;
-    public GameObject rightBrakeLight;
-    public Texture2D idleLightTex;
-    public Texture2D brakeLightTex;
-    public Texture2D reverseLightTex;
+    //public GameObject leftBrakeLight;
+    //public GameObject rightBrakeLight;
+    //public Texture2D idleLightTex;
+    //public Texture2D brakeLightTex;
+    //public Texture2D reverseLightTex;
 
     public float breakingDistance = 1f;
     public float forwardOffset;
@@ -150,13 +150,13 @@ public class AIController : MonoBehaviour
         if (currentSpeed < topSpeed && currentSpeed > maxReverseSpeed)
         {
             float adjustment = 1f;
-            float adjustment1 = Mathf.Abs(ForwardRayCast());
-            float adjustment2 = Mathf.Abs(RightRayCasts());
-            float adjustment3 = Mathf.Abs(LeftRayCasts());
+            //float adjustment1 = Mathf.Abs(ForwardRayCast());
+            //float adjustment2 = Mathf.Abs(RightRayCasts());
+            //float adjustment3 = Mathf.Abs(LeftRayCasts());
 
-            if (adjustment1 < adjustment2 || adjustment1 < adjustment3) { adjustment = adjustment1; }
-            else if (adjustment2 < adjustment1 || adjustment2 < adjustment3) { adjustment = adjustment2; }
-            else if (adjustment3 < adjustment1 || adjustment3 < adjustment2) { adjustment = adjustment3; }
+            //if (adjustment1 < adjustment2 || adjustment1 < adjustment3) { adjustment = adjustment1; }
+            //else if (adjustment2 < adjustment1 || adjustment2 < adjustment3) { adjustment = adjustment2; }
+            //else if (adjustment3 < adjustment1 || adjustment3 < adjustment2) { adjustment = adjustment3; }
 
             //rear wheel drive.
             wheelBL.motorTorque = adjustment * inputTorque * maxTorque;
@@ -204,22 +204,19 @@ public class AIController : MonoBehaviour
     {
         //rotate the wheels based on RPM
         float rotationThisFrame = 360 * Time.deltaTime;
-        wheelTransformFL.Rotate(0, -wheelFL.rpm / rotationThisFrame, 0);
-        wheelTransformFR.Rotate(0, -wheelFR.rpm / rotationThisFrame, 0);
-        wheelTransformBL.Rotate(0, -wheelBL.rpm / rotationThisFrame, 0);
-        wheelTransformBR.Rotate(0, -wheelBR.rpm / rotationThisFrame, 0);
+        wheelTransformFL.Rotate(wheelFL.rpm / rotationThisFrame, 0, 0);
 
         //Adjust the wheels heights based on the suspension.
         UpdateWheelPositions();
 
         //Determine what texture to use on our brake lights right now.
-        DetermineBreakLightState();
+       // DetermineBreakLightState();
 
         //adjust engine sound
         EngineSound();
     }
 
-    void DetermineBreakLightState()
+    /*void DetermineBreakLightState()
     {
         if ((currentSpeed > 0 && inputTorque < 0)
             || (currentSpeed < 0 && inputTorque > 0)
@@ -257,7 +254,7 @@ public class AIController : MonoBehaviour
             rightLight.intensity = 0;
 
         }
-    }
+    } */
 
     void EngineSound()
     {

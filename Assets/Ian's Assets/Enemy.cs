@@ -29,18 +29,18 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        EnemyHealth.value = Currenthealth;
+       // EnemyHealth.value = Currenthealth;
 
-        Currenthealth--;
+       // Currenthealth--;
 
         transform.LookAt(Player);
 
-        if (Vector3.Distance(transform.position, Player.position) >= MinDis)
+       /* if (Vector2.Distance(transform.position, Player.position) >= MinDis)
         {
             Chase();
         }
 
-        else if (Vector3.Distance(transform.position, Player.position) <= MaxDis)
+        else if (Vector2.Distance(transform.position, Player.position) <= MaxDis)
         {
             transform.position = transform.position;
         }
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour {
         if (Currenthealth > 0 && Currenthealth <= 1)
         {
             transform.position += transform.forward * -Enemyspeed * Time.deltaTime;
-        }
+        } */
 
 
         // Death
