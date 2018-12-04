@@ -12,61 +12,58 @@ public class Enemy : MonoBehaviour {
 
     public Slider EnemyHealth;
 
-
-    public float MinDis;
-    public float MaxDis;
+    public bool IsFighting;
+    public float RoamTime;
 
     public Transform Player;
-	// Use this for initialization
-	void Start ()
+    public Transform OilCan;
+
+
+    void Start()
     {
         Currenthealth = StartingHealth;
+    }
+   
 
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+
+
+
+    void Update()
+    {
+         if (Currenthealth <= 1)
+             {
+                 Heal();
+             }
+             
+        else if (Currenthealth > 1)
+        {
+            Roam();
+        }
+    }
+
+    public void Roam()
+    {
+        if (RoamTime > 0)
+        {
+            transform.Translate(Vector3.forward * Enemyspeed);
+            RoamTime -= Time.deltaTime;
+        }
+        else
+        {
+            RoamTime = Random.Range(3f, 16f);
+            transform.eulerAngles = new Vector3(0, Random.Range(0, 360), 0);
+
+        }
+        
 
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-       // EnemyHealth.value = Currenthealth;
-
-       // Currenthealth--;
-
-        transform.LookAt(Player);
-
-       /* if (Vector2.Distance(transform.position, Player.position) >= MinDis)
-        {
-            Chase();
-        }
-
-        else if (Vector2.Distance(transform.position, Player.position) <= MaxDis)
-        {
-            transform.position = transform.position;
-        }
-
-       
-        if (Currenthealth > 0 && Currenthealth <= 1)
-        {
-            transform.position += transform.forward * -Enemyspeed * Time.deltaTime;
-        } */
-
-
-        // Death
-
-        if (Currenthealth <= 0)
-        {
-
-            // Give the player EXP
-            //GetComponent<Player>().PlayerEXP++;
-            
-            Destroy(gameObject);
-        }
-		
-	}
-    void Chase()
+    void Heal()
     {
-        transform.position += transform.forward * Enemyspeed * Time.deltaTime;
+       OilCan = GameObject.FindGameObjectWithTag("OilCan").transform;
+       transform.position = Vector2.MoveTowards(transform.position, OilCan.position, Enemyspeed * Time.deltaTime);
+
+
     }
 
 }

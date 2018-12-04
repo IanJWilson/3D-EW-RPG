@@ -41,13 +41,13 @@ public class AIController : Enemy
     private float inputSteer;
     private float inputTorque;
 
-   // private MathUtility mathUtil;
+    //private MathUtility mathUtil;
 
-    //public float ranTest = 0f;
+    public float ranTest = 0f;
 
     void Start()
     {
-       // mathUtil = GetComponent<MathUtility>();
+       //mathUtil = GetComponent<MathUtility>();
         //so we don't have to search for it every update.
         body = GetComponent<Rigidbody>();
 
@@ -81,7 +81,7 @@ public class AIController : Enemy
     // FixedUpdate is called once per physics frame
     void FixedUpdate()
     {
-        //ranTest = mathUtil.GetAbs(ForwardRayCast());
+        ranTest = Mathf.Abs(ForwardRayCast());
         //calculate turn angle
         Vector3 RelativeWaypointPosition = transform.InverseTransformPoint(new Vector3(waypoints[currentWaypoint].position.x, transform.position.y, waypoints[currentWaypoint].position.z));
         inputSteer = RelativeWaypointPosition.x / RelativeWaypointPosition.magnitude;
@@ -150,13 +150,13 @@ public class AIController : Enemy
         if (currentSpeed < topSpeed && currentSpeed > maxReverseSpeed)
         {
             float adjustment = 1f;
-            //float adjustment1 = Mathf.Abs(ForwardRayCast());
-            //float adjustment2 = Mathf.Abs(RightRayCasts());
-            //float adjustment3 = Mathf.Abs(LeftRayCasts());
+            float adjustment1 = Mathf.Abs(ForwardRayCast());
+            float adjustment2 = Mathf.Abs(RightRayCasts());
+            float adjustment3 = Mathf.Abs(LeftRayCasts());
 
-            //if (adjustment1 < adjustment2 || adjustment1 < adjustment3) { adjustment = adjustment1; }
-            //else if (adjustment2 < adjustment1 || adjustment2 < adjustment3) { adjustment = adjustment2; }
-            //else if (adjustment3 < adjustment1 || adjustment3 < adjustment2) { adjustment = adjustment3; }
+            if (adjustment1 < adjustment2 || adjustment1 < adjustment3) { adjustment = adjustment1; }
+            else if (adjustment2 < adjustment1 || adjustment2 < adjustment3) { adjustment = adjustment2; }
+            else if (adjustment3 < adjustment1 || adjustment3 < adjustment2) { adjustment = adjustment3; }
 
             //rear wheel drive.
             wheelBL.motorTorque = adjustment * inputTorque * maxTorque;
@@ -273,7 +273,7 @@ public class AIController : Enemy
         //when reversing we have only one gear.
         else
         {
-            GetComponent<AudioSource>().pitch = (currentSpeed / maxReverseSpeed) + 0.75f;
+         //   GetComponent<AudioSource>().pitch = (currentSpeed / maxReverseSpeed) + 0.75f;
         }
     }
 
