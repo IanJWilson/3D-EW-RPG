@@ -16,17 +16,17 @@ public class ShootingEnemy : Enemy {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Vector2.Distance(transform.position, Player.position) > FiringDis)
+        if (Vector3.Distance(transform.position, Player.position) > FiringDis)
         {
-            transform.position = Vector2.MoveTowards(transform.position, Player.position, Enemyspeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, Player.position, Enemyspeed * Time.deltaTime);
         }
-        else if (Vector2.Distance(transform.position, Player.position) < FiringDis && Vector2.Distance(transform.position, Player.position) > FleeingDis)
+        else if (Vector3.Distance(transform.position, Player.position) < FiringDis && Vector3.Distance(transform.position, Player.position) > FleeingDis)
         {
             transform.position = transform.position;
         }
-        else if (Vector2.Distance(transform.position, Player.position) < FleeingDis)
+        else if (Vector3.Distance(transform.position, Player.position) < FleeingDis)
         {
-            transform.position = Vector2.MoveTowards(transform.position, Player.position, -Enemyspeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, Player.position, -Enemyspeed * Time.deltaTime);
         }
 	}
 }

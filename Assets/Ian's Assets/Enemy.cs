@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour {
     {
         if (RoamTime > 0)
         {
-            transform.Translate(Vector3.forward * Enemyspeed);
+            transform.Translate(Vector3.forward * Enemyspeed * Time.deltaTime);
             RoamTime -= Time.deltaTime;
         }
         else
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour {
     void Heal()
     {
        OilCan = GameObject.FindGameObjectWithTag("OilCan").transform;
-       transform.position = Vector2.MoveTowards(transform.position, OilCan.position, Enemyspeed * Time.deltaTime);
+       transform.position = Vector3.MoveTowards(transform.position, OilCan.position, Enemyspeed * Time.deltaTime);
 
 
     }
