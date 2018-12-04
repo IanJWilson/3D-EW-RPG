@@ -213,7 +213,7 @@ public class AIController : Enemy
        // DetermineBreakLightState();
 
         //adjust engine sound
-        EngineSound();
+        //EngineSound();
     }
 
     /*void DetermineBreakLightState()
@@ -256,26 +256,26 @@ public class AIController : Enemy
         }
     } */
 
-    void EngineSound()
-    {
-        //going forward calculate how far along that gear we are and the pitch sound.
-        if (currentSpeed > 0)
-        {
-            if (currentSpeed > topSpeed)
-            {
-                GetComponent<AudioSource>().pitch = 1.75f;
-            }
-            else
-            {
-                GetComponent<AudioSource>().pitch = ((currentSpeed % gearSpread) / gearSpread) + 0.75f;
-            }
-        }
-        //when reversing we have only one gear.
-        else
-        {
-         //   GetComponent<AudioSource>().pitch = (currentSpeed / maxReverseSpeed) + 0.75f;
-        }
-    }
+    //void EngineSound()
+    //{
+    //    //going forward calculate how far along that gear we are and the pitch sound.
+    //    if (currentSpeed > 0)
+    //    {
+    //        if (currentSpeed > topSpeed)
+    //        {
+    //            GetComponent<AudioSource>().pitch = 1.75f;
+    //        }
+    //        else
+    //        {
+    //            GetComponent<AudioSource>().pitch = ((currentSpeed % gearSpread) / gearSpread) + 0.75f;
+    //        }
+    //    }
+    //    //when reversing we have only one gear.
+    //    else
+    //    {
+    //     //   GetComponent<AudioSource>().pitch = (currentSpeed / maxReverseSpeed) + 0.75f;
+    //    }
+    //}
 
     void GetWaypoints()
     {

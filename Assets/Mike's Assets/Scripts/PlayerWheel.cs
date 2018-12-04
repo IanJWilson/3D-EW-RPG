@@ -31,7 +31,6 @@ public class PlayerWheel : CharacterScript {
     public float maxTorque = 10;
     public Vector3 centerOfMassAdjustment = new Vector3(0f, -0.9f, 0f);
 
-    
 
 
 

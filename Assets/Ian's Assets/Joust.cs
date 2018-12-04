@@ -8,7 +8,7 @@ public class Joust : Enemy
     public float RecoverTime;
     public bool testBool = false;
     
-    private Vector2 target;
+    public Vector3 target;
 
     void Start ()
     {
@@ -23,9 +23,9 @@ public class Joust : Enemy
     void Charge()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = new Vector2(Player.position.x, Player.position.z);
-
-        transform.position = Vector2.MoveTowards(transform.position, target, Enemyspeed * Time.deltaTime);
+        target = Player.position;
+        target.y = target.y + 1;
+        transform.position = Vector3.MoveTowards(transform.position, target, 15);
 
         RecoverTime = 3;
 
@@ -37,16 +37,13 @@ public class Joust : Enemy
         }
     }
 
-    void OnTriggerEnter(SphereCollider other)
+    void OnTriggerEnter(Collider other)
     {
-        testBool = true;
+
         if (other.CompareTag("Player"))
         {
+            testBool = true;
             Charge();
-            
-
-
-
         }
        
     }

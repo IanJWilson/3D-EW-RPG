@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 64286278480769958}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 114051561800385516}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 33897318396690830}
   m_Layer: 0
   m_Name: WheelMeshes
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -450,8 +450,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1369010066388960}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 174.19, y: 0.821, z: 76.08}
+  m_LocalRotation: {x: -0, y: -0.87932426, z: -0, w: 0.4762236}
+  m_LocalPosition: {x: 137.01785, y: 100.53, z: -62.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4754974210483484}
@@ -461,7 +461,7 @@ Transform:
   - {fileID: 4989581997956368}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -123.12201, z: 0}
 --- !u!4 &4439976583390322
 Transform:
   m_ObjectHideFlags: 1
