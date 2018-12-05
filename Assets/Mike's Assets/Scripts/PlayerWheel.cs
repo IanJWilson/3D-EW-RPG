@@ -16,6 +16,7 @@ public class PlayerWheel : CharacterScript {
 
     public GameObject SpearNShield;
     public GameObject SpearL;
+    public GameObject SpearT;
     public GameObject ShieldR;
 
     public GameObject Swords;
@@ -58,6 +59,12 @@ public class PlayerWheel : CharacterScript {
         wheelTransformFR.Rotate(wheelBR.rpm / rotationThisFrame, 0, 0);
         SwordSwing(SwordL, SwordR);
 
+        if (GetComponentInChildren<WeaponScript>().shieldHit)
+        {
+            GetComponentInChildren<CharacterScript>().ShieldBounce(body);
+            GetComponentInChildren<WeaponScript>().shieldHit = false;
+        }
+
         if (Input.GetKeyDown("1"))
         {
             SpearNShield.SetActive(true);
@@ -74,8 +81,6 @@ public class PlayerWheel : CharacterScript {
             swordEq = true;
         }
 
-
-
         if (swordEq) { 
             if (Input.GetButton("Fire1") && Mathf.Abs(GroundRayCast()) > 0f)
             {
@@ -83,20 +88,26 @@ public class PlayerWheel : CharacterScript {
                 body.constraints = RigidbodyConstraints.FreezePosition;
                 body.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
                 transform.RotateAround(transform.position, Vector3.up, 1080.0f * Time.deltaTime / 1f);
-
-
             }
         if (Input.GetButtonUp("Fire1") && Mathf.Abs(GroundRayCast()) > 0f)
-        {
+            {
                 isAttacking = false;
-            body.constraints = RigidbodyConstraints.FreezePosition;
+                body.constraints = RigidbodyConstraints.FreezePosition;
             body.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
         }
     }
-
-        if(spearEq){
-
-        }
+        if (spearEq){
+            if (Input.GetButton("Fire1") && Mathf.Abs(GroundRayCast()) > 0f)
+            {
+                isAttacking = true;
+                SpearThrust(SpearL,SpearT);
+            }
+            if (Input.GetButtonUp("Fire1") && Mathf.Abs(GroundRayCast()) > 0f)
+            {
+                isAttacking = false;
+                SpearReturn(SpearL, SpearT);
+            }
+            }
 
     }
 

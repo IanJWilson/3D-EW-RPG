@@ -17,7 +17,7 @@ public class ChaseCamera : MonoBehaviour
     // LateUpdate is called once per frame after Update() has been called
     void LateUpdate()
     {
-        if (player.GetComponent<PlayerWheel>().isAttacking == false)
+        if (player.GetComponent<PlayerWheel>().spearEq == true||(player.GetComponent<PlayerWheel>().isAttacking == false && player.GetComponent<PlayerWheel>().swordEq ==true ))
         {
             float currentAngle = transform.eulerAngles.y;
             float currentHeight = transform.position.y;

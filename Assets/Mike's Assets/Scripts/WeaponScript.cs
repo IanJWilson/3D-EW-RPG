@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour {
 
-    public bool testBool;
+    public bool isAttacking;
+    public bool shieldHit;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,12 +18,27 @@ public class WeaponScript : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        testBool = true;
         if (other.CompareTag("Enemy"))
         {
+            isAttacking = true;
             other.GetComponent<Enemy>().Currenthealth--;
         }
+        else if (other.CompareTag("Shield"))
+        {
+            isAttacking = true;
+            shieldHit = true;
+        }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            isAttacking = false;
+        }
+        else if (other.CompareTag("Shield"))
+        {
+            isAttacking = false;
+        }
 
-
-}
+    }
+    }

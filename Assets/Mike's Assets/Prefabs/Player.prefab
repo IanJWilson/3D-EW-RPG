@@ -109,6 +109,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1343060517320616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4464045960107532}
+  m_Layer: 0
+  m_Name: spearTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1369010066388960
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +265,7 @@ GameObject:
   - component: {fileID: 33595789865458594}
   - component: {fileID: 23239186836174194}
   - component: {fileID: 65328317511739570}
+  - component: {fileID: 114917665779688482}
   m_Layer: 0
   m_Name: shield
   m_TagString: Untagged
@@ -437,13 +453,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1369010066388960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 138.0433, y: 101.73, z: -64.56469}
+  m_LocalPosition: {x: 174.19, y: 0.399, z: 76.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4754974210483484}
   - {fileID: 4294438701250464}
   - {fileID: 4691998774940448}
   - {fileID: 4142447761865212}
+  - {fileID: 4464045960107532}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -123.12201, z: 0}
@@ -488,6 +505,19 @@ Transform:
   m_Father: {fileID: 4162151286078520}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!4 &4464045960107532
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1343060517320616}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.17715454, y: -0.0146999955, z: 0.06864166}
+  m_LocalScale: {x: 0.0025000002, y: 0.0025000002, z: 0.0016}
+  m_Children: []
+  m_Father: {fileID: 4351940117950574}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4546136467907384
 Transform:
   m_ObjectHideFlags: 1
@@ -892,6 +922,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordDraw: 1
+  movingForward: 1
+  movingBack: 0
   Quaternion1: {x: 0, y: 0, z: 0, w: 0}
   Quaternion2: {x: 0, y: 0, z: 0, w: 0}
   wheelBL: {fileID: 146710391227670890}
@@ -904,6 +936,7 @@ MonoBehaviour:
   wheelTransformFR: {fileID: 4294438701250464}
   SpearNShield: {fileID: 1444642608244354}
   SpearL: {fileID: 1717029629610758}
+  SpearT: {fileID: 1343060517320616}
   ShieldR: {fileID: 1711476194081696}
   Swords: {fileID: 1593806109104310}
   SwordL: {fileID: 1689532056750758}
@@ -929,7 +962,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed139c8e2d2a4e4428bf04e4d62a0e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testBool: 0
+  isAttacking: 0
+  shieldHit: 0
 --- !u!114 &114809757197097502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -941,7 +975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed139c8e2d2a4e4428bf04e4d62a0e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testBool: 0
+  isAttacking: 0
+  shieldHit: 0
 --- !u!114 &114896186450399642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -953,7 +988,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed139c8e2d2a4e4428bf04e4d62a0e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testBool: 0
+  isAttacking: 0
+  shieldHit: 0
+--- !u!114 &114917665779688482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1711476194081696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed139c8e2d2a4e4428bf04e4d62a0e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttacking: 0
+  shieldHit: 0
 --- !u!136 &136030640087278508
 CapsuleCollider:
   m_ObjectHideFlags: 1
