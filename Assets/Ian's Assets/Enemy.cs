@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour {
 
     }
 
-    void Heal()
+    public void Heal()
     {
        OilCan = GameObject.FindGameObjectWithTag("OilCan").transform;
        transform.position = Vector3.MoveTowards(transform.position, OilCan.position, Enemyspeed * Time.deltaTime);

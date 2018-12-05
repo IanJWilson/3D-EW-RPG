@@ -1231,7 +1231,7 @@ GameObject:
   - component: {fileID: 298232495}
   m_Layer: 0
   m_Name: EnemyAI
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1244,18 +1244,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 298232494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de686f934d00737408bfdc064032fcb9, type: 3}
+  m_Script: {fileID: 11500000, guid: ed0b1cf68763327439b426a67e770a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingHealth: 2
+  StartingHealth: 1
   Currenthealth: 0
-  Enemyspeed: 0.01
+  Enemyspeed: 1
   Enemydamage: 0
   EnemyHealth: {fileID: 0}
   IsFighting: 0
   RoamTime: 0
-  Player: {fileID: 0}
-  OilCan: {fileID: 1380482397}
+  Player: {fileID: 1662857848}
+  OilCan: {fileID: 0}
+  CrntHealth: 0
 --- !u!54 &298232496
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1280,7 +1281,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 298232494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 135, y: 100.543, z: -70.721}
+  m_LocalPosition: {x: 124.27, y: 100.543, z: -66.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1013333143}
@@ -1403,7 +1404,20 @@ Prefab:
       propertyPath: m_Name
       value: OilCan
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 400002, guid: 18a7fa198e95cf3478837a4698d1d7c9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 18a7fa198e95cf3478837a4698d1d7c9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 18a7fa198e95cf3478837a4698d1d7c9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11100000, guid: 18a7fa198e95cf3478837a4698d1d7c9, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 18a7fa198e95cf3478837a4698d1d7c9, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &354890853
@@ -1862,6 +1876,7 @@ GameObject:
   - component: {fileID: 626923664}
   - component: {fileID: 626923663}
   - component: {fileID: 626923662}
+  - component: {fileID: 626923667}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1882,7 +1897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingHealth: 3
   Currenthealth: 0
-  Enemyspeed: 0.00001
+  Enemyspeed: 1
   Enemydamage: 0
   EnemyHealth: {fileID: 0}
   IsFighting: 0
@@ -1958,6 +1973,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &626923667
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626923661}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &628755356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4030265401529158, guid: a1cac729332a2ab4da9eddbafe267558,
@@ -2879,41 +2909,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 885522770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b07fd50185198347bdec668f4d01699, type: 3}
+  m_Script: {fileID: 11500000, guid: fa619d0a88f4401489e91d7b0c99ae55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartingHealth: 3
   Currenthealth: 0
-  Enemyspeed: 3
-  Enemydamage: 3
+  Enemyspeed: 1
+  Enemydamage: 0
   EnemyHealth: {fileID: 0}
   IsFighting: 0
-  RoamTime: 10
-  Player: {fileID: 1662857848}
+  RoamTime: 0
+  Player: {fileID: 0}
   OilCan: {fileID: 0}
-  waypointContainer: {fileID: 1837553412}
-  numberOfGears: 0
-  topSpeed: 150
-  maxReverseSpeed: -50
-  maxBrakeTorque: 100
-  maxTurnAngle: 10
-  maxTorque: 10
-  decelerationTorque: 30
-  centerOfMassAdjustment: {x: 0, y: -0.9, z: 0}
-  spoilerRatio: 0.1
-  handbrakeForwardSlip: 0.04
-  handbrakeSidewaysSlip: 0.08
-  wheelFL: {fileID: 192669094}
-  wheelFR: {fileID: 2144184074}
-  wheelBL: {fileID: 1337096113}
-  wheelBR: {fileID: 1255061584}
-  wheelTransformFL: {fileID: 1598943327}
-  wheelTransformFR: {fileID: 1598943327}
-  wheelTransformBL: {fileID: 1598943327}
-  wheelTransformBR: {fileID: 1598943327}
-  breakingDistance: 1
-  forwardOffset: 1
-  ranTest: 0
+  FiringDis: 20
+  FleeingDis: 30
 --- !u!54 &885522772
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3433,7 +3442,7 @@ GameObject:
   - component: {fileID: 1013333143}
   m_Layer: 0
   m_Name: WheelColliders
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4246,15 +4255,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingHealth: 3
   Currenthealth: 0
-  Enemyspeed: 0.005
+  Enemyspeed: 0.5
   Enemydamage: 0
   EnemyHealth: {fileID: 0}
   IsFighting: 0
   RoamTime: 0
   Player: {fileID: 1662857848}
   OilCan: {fileID: 0}
-  RecoverTime: 0
-  testBool: 0
+  IsCharging: 0
+  RecovTime: 0
   target: {x: 0, y: 0, z: 0}
 --- !u!135 &1327809174
 SphereCollider:
@@ -4466,12 +4475,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.35, y: 2.13, z: 1.46}
-  m_Center: {x: 4.28, y: 0.92, z: 0.73}
---- !u!4 &1380482397 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 18a7fa198e95cf3478837a4698d1d7c9,
-    type: 2}
-  m_PrefabInternal: {fileID: 345931589}
+  m_Center: {x: 0, y: 1.1, z: 0}
 --- !u!1001 &1388013512
 Prefab:
   m_ObjectHideFlags: 0
@@ -5122,7 +5126,7 @@ GameObject:
   - component: {fileID: 1592993244}
   m_Layer: 0
   m_Name: Colliders
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5563,7 +5567,7 @@ GameObject:
   - component: {fileID: 1719964451}
   m_Layer: 0
   m_Name: WheelMeshes
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

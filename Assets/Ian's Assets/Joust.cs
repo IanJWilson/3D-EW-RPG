@@ -5,45 +5,66 @@ using UnityEngine;
 public class Joust : Enemy
 {
 
-    public float RecoverTime;
-    public bool testBool = false;
-    
+   
+    public bool IsCharging;
+
+    public float RecovTime;
+
     public Vector3 target;
 
     void Start ()
     {
         Currenthealth = StartingHealth;
+        
     }
 	
 	
 	void Update () {
-       // base.Roam();
-	}
 
-    void Charge()
-    {
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = Player.position;
-        target.y = target.y + 1;
-        transform.position = Vector3.MoveTowards(transform.position, target, 15);
 
-        RecoverTime = 3;
-
-        RecoverTime -= Time.deltaTime;
-
-        if (RecoverTime > 0)
+        if (RecovTime > 0)
         {
+            RecovTime -= Time.deltaTime;
             transform.position = transform.position;
         }
+        else if (!IsCharging)
+        {
+            base.Roam();
+        }
+            
+    }
+
+    public void Charge()
+    {
+        IsCharging = true;
+
+        if(IsCharging == true)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player").transform;
+            target = Player.position;
+            target.y = target.y + 1;
+
+            transform.position = Vector3.MoveTowards(transform.position, target, Enemyspeed * 3 * Time.deltaTime);
+
+
+            if (Vector3.Distance(transform.position, target) <= 1)
+            {
+                RecovTime = 5;
+                IsCharging = false;
+            }
+        }
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && RecovTime <= 0)
         {
-            testBool = true;
+          
             Charge();
+
+            
         }
        
     }

@@ -15,7 +15,7 @@ public class OilCan : MonoBehaviour {
         }
         else if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().Currenthealth++;
+            other.GetComponent<EnemyHeal>().CrntHealth +=1;
         }
         Destroy(gameObject);
     }
