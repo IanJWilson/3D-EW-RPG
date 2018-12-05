@@ -20,6 +20,7 @@ public class Joust : Enemy
 	
 	
 	void Update () {
+     
 
 
         if (RecovTime > 0)
@@ -31,7 +32,6 @@ public class Joust : Enemy
         {
             base.Roam();
         }
-            
     }
 
     public void Charge()
@@ -44,7 +44,8 @@ public class Joust : Enemy
             target = Player.position;
             target.y = target.y + 1;
 
-            transform.position = Vector3.MoveTowards(transform.position, target, Enemyspeed * 3 * Time.deltaTime);
+
+            transform.position = Vector3.Lerp(transform.position, target, 1);
 
 
             if (Vector3.Distance(transform.position, target) <= 1)
@@ -69,3 +70,7 @@ public class Joust : Enemy
        
     }
 }
+//float h = Input.GetAxis("Horizontal") * Enemyspeed * Time.deltaTime;
+//float v = Input.GetAxis("Vertical") * Enemyspeed * Time.deltaTime;
+
+//transform.Translate(new Vector3(h, 0, v));

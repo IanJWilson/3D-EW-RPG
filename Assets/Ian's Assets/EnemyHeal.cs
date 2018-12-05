@@ -9,18 +9,18 @@ public class EnemyHeal : Enemy {
 
 	// Use this for initialization
 	void Start () {
-        CrntHealth = base.StartingHealth;
+        CrntHealth = StartingHealth;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (Currenthealth <= 1)
+        if (CrntHealth <= 1)
         {
             Heal();
         }
 
-        else if (Currenthealth > 1)
+        else if (CrntHealth > 1)
         {
             Roam();
         }

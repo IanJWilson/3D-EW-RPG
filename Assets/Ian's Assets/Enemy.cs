@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour {
          if (Currenthealth <= 1)
              {
                  Heal();
+
              }
              
         else if (Currenthealth > 1)
