@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour {
 
+    public bool testBool;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,6 +17,7 @@ public class WeaponScript : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        testBool = true;
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Enemy>().Currenthealth--;

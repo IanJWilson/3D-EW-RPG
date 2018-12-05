@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4943935126763116}
   - component: {fileID: 136030640087278508}
+  - component: {fileID: 114139550610299628}
   m_Layer: 0
   m_Name: spearCollider
   m_TagString: Untagged
@@ -134,6 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4064445485126696}
   - component: {fileID: 136422138119166406}
+  - component: {fileID: 114896186450399642}
   m_Layer: 0
   m_Name: sword2Collider
   m_TagString: Untagged
@@ -179,7 +181,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4439976583390322}
-  - component: {fileID: 114412297523194840}
   m_Layer: 0
   m_Name: Swords
   m_TagString: Untagged
@@ -197,7 +198,6 @@ GameObject:
   - component: {fileID: 4068888019576304}
   - component: {fileID: 33432424351119464}
   - component: {fileID: 23939219813753734}
-  - component: {fileID: 114935858574203512}
   m_Layer: 0
   m_Name: swordR
   m_TagString: Untagged
@@ -232,7 +232,6 @@ GameObject:
   - component: {fileID: 4162151286078520}
   - component: {fileID: 33644895713740632}
   - component: {fileID: 23524541285950848}
-  - component: {fileID: 114722737915730720}
   m_Layer: 0
   m_Name: swordL
   m_TagString: Untagged
@@ -251,7 +250,6 @@ GameObject:
   - component: {fileID: 33595789865458594}
   - component: {fileID: 23239186836174194}
   - component: {fileID: 65328317511739570}
-  - component: {fileID: 114545915420916156}
   m_Layer: 0
   m_Name: shield
   m_TagString: Untagged
@@ -269,7 +267,6 @@ GameObject:
   - component: {fileID: 4546136467907384}
   - component: {fileID: 33713705966855236}
   - component: {fileID: 23093464956540406}
-  - component: {fileID: 114479662931217408}
   m_Layer: 0
   m_Name: spear
   m_TagString: Untagged
@@ -317,6 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4461972814650468}
   - component: {fileID: 136275937636632752}
+  - component: {fileID: 114809757197097502}
   m_Layer: 0
   m_Name: sword1Collider
   m_TagString: Untagged
@@ -439,7 +437,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1369010066388960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 174.19, y: 0.399, z: 76.08}
+  m_LocalPosition: {x: 138.0433, y: 101.73, z: -64.56469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4754974210483484}
@@ -920,61 +918,42 @@ MonoBehaviour:
   maxTorque: 500
   centerOfMassAdjustment: {x: 0, y: -2, z: 0}
   groundDist: 0
---- !u!114 &114412297523194840
+--- !u!114 &114139550610299628
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1593806109104310}
+  m_GameObject: {fileID: 1066752207500788}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed139c8e2d2a4e4428bf04e4d62a0e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114479662931217408
+  testBool: 0
+--- !u!114 &114809757197097502
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1717029629610758}
+  m_GameObject: {fileID: 1895332125852084}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed139c8e2d2a4e4428bf04e4d62a0e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114545915420916156
+  testBool: 0
+--- !u!114 &114896186450399642
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1711476194081696}
+  m_GameObject: {fileID: 1402084469354744}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed139c8e2d2a4e4428bf04e4d62a0e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114722737915730720
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1689532056750758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed139c8e2d2a4e4428bf04e4d62a0e1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114935858574203512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1606182507273710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed139c8e2d2a4e4428bf04e4d62a0e1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  testBool: 0
 --- !u!136 &136030640087278508
 CapsuleCollider:
   m_ObjectHideFlags: 1
